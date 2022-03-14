@@ -2,6 +2,7 @@
 from datetime import timedelta
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,6 +20,8 @@ ALLOWED_HOSTS = ['*']
 
 VERSION = "v1"
 
+SITE_URL = 'http://127.0.0.1:8000'
+
 
 # Application definition
 
@@ -34,7 +37,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
-    'drf_yasg',
+    'drf_spectacular',
 ]
 LOCAL_APPS = [
     'apps.order',
@@ -88,9 +91,23 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-    'PAGE_SIZE': 10
+
+    'DEFAULT_PERMISSIONS_CLASSES': ('rest_framework.permissions.IsAuthenticatesd',),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
+}
+
+SWAGGER_SETTINGS = {
+    'TITLE': 'EC API',
+    'DESCRIPTION': 'Ecommerce API description',
+    'VERSION': '1.0.0',
+    'CONTACT': {
+        'name': 'Tomas-Islas',
+        'email': 'tomas.islas.94@gmail.com',
+    },
+    'SWAGGER_UI_SETTINGS': {
+        'persistAuthorization': True,
+    },
 }
 
 SIMPLE_JWT = {
