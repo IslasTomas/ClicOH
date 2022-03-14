@@ -16,11 +16,11 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('pid',
+        fields = ('id',
                   'date_time',
                   )
         extra_kwargs = {
-            'pid': {'read_only': True},
+            'id': {'read_only': True},
             'total_price': {'read_only': True},
             'total_price_usd': {'read_only': True}
 

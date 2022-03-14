@@ -5,10 +5,8 @@ from ..product.models import Product
 
 
 class Order(models.Model):
-    pid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    date_time= models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    
-
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    date_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def get_total(self):
         """return the total of the order"""
@@ -21,8 +19,8 @@ class Order(models.Model):
 
 class OrderDetail(models.Model):
     class Meta:
-        unique_together =(('order'),('product'))
-        
+        unique_together = (('order'), ('product'))
+
     cuantity = models.PositiveIntegerField()
 
     order = models.ForeignKey(Order, null=True, on_delete=models.SET_NULL)

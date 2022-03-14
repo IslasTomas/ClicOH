@@ -6,11 +6,25 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ('pid',
+        fields = ('id',
                   'name',
                   'price',
                   'stock',
                   )
         extra_kwargs = {
-            'pid': {'read_only': True}
+            'id': {'read_only': True}
         }
+
+
+class ProductStockserializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = (
+            'id',
+            'stock',
+            'name',
+            'price',
+
+        )
+
+    # read_only_fields = ('id', 'name', 'price')
