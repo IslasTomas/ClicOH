@@ -27,4 +27,4 @@ class ProductStockserializer(serializers.ModelSerializer):
 
         )
 
-    # read_only_fields = ('id', 'name', 'price')
+        read_only_fields = ('id', 'name', 'price')

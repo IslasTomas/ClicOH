@@ -34,8 +34,9 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     @action(methods=['patch'], detail=True, url_name='update-stock', url_path='update_stock')
     def update_stock(self, request, *args, **kwargs):
+
         product = self.get_object()
-        serializer = ProductSerializer(
+        serializer = ProductStockserializer(
             product, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()

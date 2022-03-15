@@ -2,12 +2,9 @@ from django.conf import settings
 
 
 from django.contrib import admin
-from django.urls import path, re_path, include
+from django.urls import path, include
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from rest_framework import permissions
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
