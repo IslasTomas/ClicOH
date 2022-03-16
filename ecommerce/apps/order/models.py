@@ -1,5 +1,5 @@
 import uuid
-from django.db import models
+from django.db import models, transaction
 
 from common.utils import get_dollar_price
 
@@ -23,6 +23,16 @@ class Order(models.Model):
 
         return round(self.get_total() / dollar_price, 4)
 
+    def restore_stock_products(self):
+        try:
+            with transaction.atomic():
+                for detail in self.orderdetail_set.all():
+
+                    detail.restore_stock()
+                return True
+        except Exception:
+            return False
+
 
 class OrderDetail(models.Model):
     class Meta:
@@ -30,5 +40,14 @@ class OrderDetail(models.Model):
 
     cuantity = models.PositiveIntegerField()
 
-    order = models.ForeignKey(Order, null=True, on_delete=models.SET_NULL)
+    order = models.ForeignKey(Order, default=None, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
+
+    def restore_stock(self):
+        try:
+            with transaction.atomic():
+                self.product.stock += self.cuantity
+                self.product.save()
+                return True
+        except Exception:
+            return False
