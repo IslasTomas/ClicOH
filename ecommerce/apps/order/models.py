@@ -40,7 +40,7 @@ class OrderDetail(models.Model):
 
     cuantity = models.PositiveIntegerField()
 
-    order = models.ForeignKey(Order, default=None, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
 
     def restore_stock(self):

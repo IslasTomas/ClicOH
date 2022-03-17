@@ -44,9 +44,9 @@ class OrderViewSet(viewsets.ModelViewSet):
 
         instance = self.get_object()
         restored = instance.restore_stock_products()
-        instance.delete()
 
         if restored:
+            instance.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         return Response(data={'response': 'Internal error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -73,9 +73,7 @@ class OrderDetailViewSet(viewsets.ModelViewSet):
 
         instance = self.get_object()
         restored = instance.restore_stock()
-
-        instance.delete()
-
         if restored:
+            instance.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         return Response(data={'response': 'Internal error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

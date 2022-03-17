@@ -14,7 +14,7 @@ class OrderDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OrderDetail
-        fields = ('id', 'cuantity', 'product',)
+        fields = ('id', 'cuantity', 'product', 'order')
 
         read_only_fields = ('id',)
 
@@ -89,9 +89,6 @@ class OrderDetailCreateviewSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
 
-        if not data.get('product'):
-            data['partial'] = True
-            data['product'] = self.instance.product
         return validate_data_order_detail(self, data)
 
     def create(self, data):

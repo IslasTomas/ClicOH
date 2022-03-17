@@ -1,0 +1,106 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$320000$5l0qPWJp5qFNXufeVndLMi$Yz6+CYAHiInO3GqpK/qteDIyq77CYWV9tpdRl0u037U=",
+            "last_login": "2022-03-16T14:14:07.832Z",
+            "is_superuser": true,
+            "username": "test",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2022-03-16T14:13:59.168Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": "b59340ab-1cf3-41ab-acfc-79db575ba95b",
+        "fields": {
+            "date_time": "2022-03-16T19:10:07.324Z"
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": "b5ec8601-36e3-413c-92bb-af350b0ad82c",
+        "fields": {
+            "date_time": "2022-03-16T14:20:31.486Z"
+        }
+    },
+    {
+        "model": "order.orderdetail",
+        "pk": 9,
+        "fields": {
+            "cuantity": 12,
+            "order": "b5ec8601-36e3-413c-92bb-af350b0ad82c",
+            "product": "f87965a9-cf14-4ad8-a6e3-81d872310001"
+        }
+    },
+    {
+        "model": "order.orderdetail",
+        "pk": 10,
+        "fields": {
+            "cuantity": 4,
+            "order": "b59340ab-1cf3-41ab-acfc-79db575ba95b",
+            "product": "f87965a9-cf14-4ad8-a6e3-81d872310001"
+        }
+    },
+    {
+        "model": "order.orderdetail",
+        "pk": 11,
+        "fields": {
+            "cuantity": 5,
+            "order": "b5ec8601-36e3-413c-92bb-af350b0ad82c",
+            "product": "93dc5eb1-6d0b-48b5-93c3-8814a166d636"
+        }
+    },
+    {
+        "model": "order.orderdetail",
+        "pk": 12,
+        "fields": {
+            "cuantity": 1,
+            "order": "b5ec8601-36e3-413c-92bb-af350b0ad82c",
+            "product": "3f5e270c-d5b8-4185-b2f8-cf205d8a89b0"
+        }
+    },
+    {
+        "model": "order.orderdetail",
+        "pk": 13,
+        "fields": {
+            "cuantity": 8,
+            "order": "b59340ab-1cf3-41ab-acfc-79db575ba95b",
+            "product": "93dc5eb1-6d0b-48b5-93c3-8814a166d636"
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": "3f5e270c-d5b8-4185-b2f8-cf205d8a89b0",
+        "fields": {
+            "name": "producto 3",
+            "price": 14.0,
+            "stock": 100
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": "93dc5eb1-6d0b-48b5-93c3-8814a166d636",
+        "fields": {
+            "name": "producto 1",
+            "price": 11.5,
+            "stock": 68
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": "f87965a9-cf14-4ad8-a6e3-81d872310001",
+        "fields": {
+            "name": "producto 2",
+            "price": 113.0,
+            "stock": 115
+        }
+    }
+]

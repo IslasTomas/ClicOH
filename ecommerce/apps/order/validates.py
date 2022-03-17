@@ -3,6 +3,10 @@ from rest_framework.exceptions import ValidationError
 
 def validate_data_order_detail(serializer_instance, data):
 
+    if not data.get('product'):
+        data['partial'] = True
+        data['product'] = serializer_instance.instance.product
+
     if data['cuantity'] <= 0:
         raise ValidationError(
             detail=('cuantity must be greater than 0'))
