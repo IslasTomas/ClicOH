@@ -9,6 +9,13 @@ djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 drf-spectacular = "*"
 django-filter = "*"
+django-environ = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+install = "*"
+django-on-heroku = "*"
+whitenoise = "*"
+requests = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -37,7 +37,7 @@ python manage.py runserver –settings=settings.local
 swagger
 
 ```
-http://127.0.0.1:8000/swagger/    
+http://127.0.0.1:8000/    
 ```
 
 here we can see all the endpoints, to access them you must first retrieve the access token and paste it in Authorize of swagger
